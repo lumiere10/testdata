@@ -18,7 +18,13 @@ $('body').each(function() {
     bulletArray[currentIndex].removeClass('active');
     bulletArray[newIndex].addClass('active');
     
-    
+    if (newIndex > currentIndex) {
+      slideTop = '100%';
+      animateTop = '-100%';
+    } else {
+      slideTop = '-100%';
+      animateTop = '100%';
+    }
     
     $slides.eq(newIndex).css({
       display: 'block',
@@ -51,7 +57,8 @@ $('body').each(function() {
   
   $('#prev').on('click', function() {
     if (currentIndex !== 0 ) {
-      move(currentIndex - 1);
+      
+      Math.abs(move(currentIndex - 1));
     } else {
       move(1);
     }
@@ -75,8 +82,9 @@ $('body').each(function() {
 
 	  
 
-	});
+	
   
   });
 });
 
+});
