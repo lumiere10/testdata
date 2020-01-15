@@ -18,30 +18,23 @@ $('body').each(function() {
     bulletArray[currentIndex].removeClass('active');
     bulletArray[newIndex].addClass('active');
     
-    if (newIndex > currentIndex) {
-      slideTop = '100%';
-      animateTop = '-100%';
-    } else {
-      slideTop = '-100%';
-      animateTop = '100%';
-    }
+    
     
     $slides.eq(newIndex).css({
       display: 'block',
-      top: slideTop
+      top: slideTop , 
+        opacity: 1
+
     });
     $group.animate({
       top: animateTop
     }, function() {
       $slides.eq(currentIndex).css({
-        display: 'none'
+        display: 'none', 
+        opacity: 0
+
       });
-      $slides.eq(newIndex).css({
-        top: 0
-      });
-      $group.css({
-        top: 0
-      });
+      
       currentIndex = newIndex;
     });
   }
