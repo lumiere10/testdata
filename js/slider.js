@@ -1,4 +1,4 @@
-
+$( document ).ready(function() {
 $('body').each(function() {
   var $this = $(this);
   var $group = $this.find('#slider_wrapper');
@@ -75,7 +75,7 @@ $('body').each(function() {
 
 	  
 
-	
+	});
   
   });
 });
