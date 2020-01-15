@@ -53,7 +53,7 @@ $('body').each(function() {
       } else {
         move(0);
       }
-    }, 10000);
+    },4000);
   }
   
   
