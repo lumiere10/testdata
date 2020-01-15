@@ -10,6 +10,7 @@ $('body').each(function() {
   function move(newIndex) {
     var animateTop, slideTop;
     
+    advance();
     
     if ($group.is(':animated') || currentIndex === newIndex) {
       return;
@@ -43,6 +44,16 @@ $('body').each(function() {
       
       currentIndex = newIndex;
     });
+  }
+    function advance() {
+    clearTimeout(timeout);
+    timeout = setTimeout(function() {
+      if (currentIndex < ($slides.length - 1)) {
+        move(currentIndex + 1);
+      } else {
+        move(0);
+      }
+    }, 10000);
   }
   
   
@@ -85,6 +96,7 @@ $('body').each(function() {
 	
   
   });
+  advance();
 });
 
 });
